@@ -1,6 +1,8 @@
 # Week 3: R Shiny
 R Shiny allows you to create interactive web applications using the R programming language. It simplifies the process of building dynamic interfaces and visualizations without needing extensive web development knowledge. With Shiny, you can turn your R code into web apps accessed through a browser. It's great for sharing data-driven insights, providing options for user input, instant updates, and deployment. In a nutshell, Shiny helps you make your R analyses and visualizations more interactive and accessible to others.
 
+## How it Works
+R Shiny combines R with web technologies to create interactive web applications. You design the user interface and write R code for the server logic. When you run the application, it opens in a web browser, allowing users to interact with it. As they input data or make selections, the R server responds by executing code and updating the outputs in real-time. You can also deploy the application to share it with others. Overall, Shiny makes it easy to create interactive web apps that let users explore data and visualize results in an intuitive and dynamic way.
 
 ## Get in Touch
 
