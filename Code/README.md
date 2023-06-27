@@ -1,3 +1,7 @@
+# Notes for next time
+- Only displaying FTIR, try to make sure that it chooses the right one and can display both
+- Fix the placement of the new box
+
 
 # OpenSpecy Spectral Analysis
 
