@@ -1,3 +1,4 @@
+
 # OpenSpecy Spectral Analysis
 
 This application allows you to analyze and match spectral data uploaded from various file formats, such as CSV, ASP, JDX, SPC, SPA, and 0. It utilizes the OpenSpecy package for spectral analysis and provides interactive visualization of the matched spectrum.
