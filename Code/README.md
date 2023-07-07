@@ -1,8 +1,3 @@
-# Notes for next time
-- Only displaying FTIR, try to make sure that it chooses the right one and can display both
-- Fix the placement of the new box
-
-
 # OpenSpecy Spectral Analysis
 
 This application allows you to analyze and match spectral data uploaded from various file formats, such as CSV, ASP, JDX, SPC, SPA, and 0. It utilizes the OpenSpecy package for spectral analysis and provides interactive visualization of the matched spectrum.
@@ -15,41 +10,26 @@ Features:
 - Determine the type of spectra (FTIR or Raman) based on the highest "r" value.
 - Display information about the selected spectrum type, data status (processed or unprocessed), and region status (full spectrum or peaks).
 
-Prerequisites:
-- R environment with the necessary packages installed (shiny, OpenSpecy, dplyr, DT).
-- Spectral library files compatible with the OpenSpecy package.
+The code for this application performs the following steps:
 
-Instructions:
-1. Install the required packages if not already installed by running the following commands in R:
-   if (!require("shiny")) install.packages("shiny")
-   if (!require("OpenSpecy")) install.packages("OpenSpecy")
-   if (!require("dplyr")) install.packages("dplyr")
-   if (!require("DT")) install.packages("DT")
+1. It checks if the required packages are installed and installs them if needed. These packages provide functions and tools for data analysis and visualization.
 
-2. Load the necessary libraries by running the following commands in R:
-   library(shiny)
-   library(OpenSpecy)
-   library(dplyr)
-   library(DT)
+2. The necessary packages are loaded into the application.
 
-3. Fetch the FTIR library by running the following command in R:
-   get_lib()
+3. The FTIR library, which contains reference spectra for analysis, is fetched.
 
-4. Load the FTIR library into the global environment by running the following command in R:
-   spec_lib <- load_lib()
+4. The user interface (UI) is defined using the Shiny framework. It includes a file upload widget for the user to upload a spectral data file. The supported file formats are specified.
 
-5. Run the application by running the following command in R:
-   shinyApp(ui = ui, server = server)
+5. The server logic is defined. It handles the processing of the uploaded file and generates the analysis results.
 
-6. In the application interface:
-   - Click on the "Upload a file" button to select a spectral data file.
-   - Choose the file format from the available options (CSV, ASP, JDX, SPC, SPA, 0).
-   - Click the "Analyze" button to process and match the spectrum.
+6. When a file is uploaded, the server code reads the file and performs various data processing steps, such as adjusting the spectral intensity and identifying the type of spectrum (Raman or FTIR).
 
-7. The matched spectrum will be displayed in a table, and additional information about the selected spectrum type, data status, and region status will be shown below the data input section.
+7. Different combinations of smoothing factors and background correction values are generated for analysis.
 
-Notes:
-- Make sure to have the required spectral library files compatible with the OpenSpecy package for accurate matching.
-- The code assumes that the "match_spec" function returns the "r" values as part of the match results. Verify that your "match_spec" function provides the necessary information for the comparison.
-- This code can be modified and customized according to specific requirements.
+8. For each combination, the uploaded spectrum is processed by applying the selected smoothing factor and background correction. The processed spectrum is then matched with the FTIR library to find the best matching reference spectra.
 
+9. The analysis results, including the smoothing intensity, baseline correction, sample name, spectrum identity, R-value (a measure of similarity), organization, and spectrum type (Raman or FTIR), are stored in a table.
+
+10. The results table is displayed in the application's main panel using the DataTable library, allowing for interactive exploration and filtering of the results.
+
+In summary, this application provides a user-friendly interface to upload and analyze spectral data. It performs various data processing steps, matches the uploaded spectrum with a reference library, and presents the analysis results in a table format.
