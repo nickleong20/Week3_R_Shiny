@@ -4,6 +4,10 @@ R Shiny is a framework that lets you build interactive web applications with R. 
 ## How it Works
 In Shiny, you combine the user interface (UI) and server logic. The UI section defines the layout, appearance, and input controls of your app using R functions. On the server side, you write R code that determines how the app responds to user inputs and data changes. Shiny's reactive programming allows your app to automatically update outputs in real-time. It takes care of managing the interplay between the UI and server, ensuring that changes in inputs trigger the necessary computations and updates. You can run the resulting app locally or deploy it to a web server for wider accessibility. With Shiny, R users can easily create interactive web apps that facilitate data exploration, analysis, and communication through a user-friendly interface.
 
+## Spectral Analysis Application
+
+The Spectral Analysis Application is a web-based tool built with Shiny and R that simplifies the process of analyzing and matching spectral data. It allows users to upload spectral data files, perform analysis using the OpenSpecy package, and visualize the results in an interactive table. Whether you're a researcher, analyst, or scientist working with spectral data, this application provides a user-friendly interface to streamline your analysis workflow. To get started, visit the [Code](code/) section of this repository and follow the instructions to run the application locally. Explore the power of spectral analysis and make the most out of your data with this convenient tool.
+
 ## Get in Touch
 
 Thank you for your interest in my project! If you have any questions, suggestions, or feedback, feel free to contact me. I'd be happy to hear from you.
