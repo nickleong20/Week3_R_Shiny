@@ -1,35 +1,43 @@
-# OpenSpecy Spectral Analysis
+## Spectral Analysis Application
 
-This application allows you to analyze and match spectral data uploaded from various file formats, such as CSV, ASP, JDX, SPC, SPA, and 0. It utilizes the OpenSpecy package for spectral analysis and provides interactive visualization of the matched spectrum.
+This repository contains a web-based application built with Shiny and R that aims to solve the problem of spectral analysis and matching for scientific and analytical purposes. The application provides a user-friendly interface for users to upload spectral data files and perform analysis using the OpenSpecy package.
 
-Features:
-- Upload spectral data files in various formats.
-- Adjust spectral intensity, smooth, and background-correct the spectrum.
-- Match the spectrum with a library and retrieve metadata.
-- Display the matched spectrum in a table.
-- Determine the type of spectra (FTIR or Raman) based on the highest "r" value.
-- Display information about the selected spectrum type, data status (processed or unprocessed), and region status (full spectrum or peaks).
+### Problem Statement
 
-The code for this application performs the following steps:
+Analyzing spectral data is a common task in various scientific fields, such as chemistry, biology, materials science, and environmental science. Researchers and analysts often need to compare their experimental spectra with reference spectra to identify compounds or understand the characteristics of their samples. However, this process can be time-consuming and require expertise in data processing and analysis.
 
-1. It checks if the required packages are installed and installs them if needed. These packages provide functions and tools for data analysis and visualization.
+### Solution
 
-2. The necessary packages are loaded into the application.
+The Spectral Analysis Application offers a convenient solution to streamline spectral analysis and matching. With this application, users can easily upload spectral data files in different formats, such as CSV, ASP, JDX, SPC, SPA, and 0. The application processes the data, adjusts the spectral intensity, and matches the spectra with a pre-built FTIR (Fourier Transform Infrared) library using the OpenSpecy package.
 
-3. The FTIR library, which contains reference spectra for analysis, is fetched.
+The application allows users to explore different combinations of smoothing factors and background correction values to refine the analysis. The results are presented in an interactive table, providing insights into the best matching reference spectra, including information such as the sample name, spectrum identity, R-value (a measure of similarity), organization, and spectrum type (FTIR or Raman).
 
-4. The user interface (UI) is defined using the Shiny framework. It includes a file upload widget for the user to upload a spectral data file. The supported file formats are specified.
+By using this application, researchers and analysts can save time and effort in their spectral analysis tasks. It simplifies the process of comparing experimental spectra with reference spectra, enabling users to gain valuable insights from their spectral data in a user-friendly and intuitive manner.
 
-5. The server logic is defined. It handles the processing of the uploaded file and generates the analysis results.
+### Getting Started
 
-6. When a file is uploaded, the server code reads the file and performs various data processing steps, such as adjusting the spectral intensity and identifying the type of spectrum (Raman or FTIR).
+To run the application locally, follow these steps:
+1. Install the necessary R packages specified in the `app.R` file.
+2. Clone this repository to your local machine.
+3. Open the `app.R` file in RStudio or any other R IDE.
+4. Run the code to start the application.
+5. Access the application through your web browser and begin uploading spectral data files for analysis.
 
-7. Different combinations of smoothing factors and background correction values are generated for analysis.
+### Dependencies
 
-8. For each combination, the uploaded spectrum is processed by applying the selected smoothing factor and background correction. The processed spectrum is then matched with the FTIR library to find the best matching reference spectra.
+The Spectral Analysis Application relies on the following R packages:
+- shiny
+- OpenSpecy
+- dplyr
+- DT
+- progress
 
-9. The analysis results, including the smoothing intensity, baseline correction, sample name, spectrum identity, R-value (a measure of similarity), organization, and spectrum type (Raman or FTIR), are stored in a table.
+These packages will be automatically installed if not already available in your R environment.
 
-10. The results table is displayed in the application's main panel using the DataTable library, allowing for interactive exploration and filtering of the results.
+### Contribution
 
-In summary, this application provides a user-friendly interface to upload and analyze spectral data. It performs various data processing steps, matches the uploaded spectrum with a reference library, and presents the analysis results in a table format.
+Contributions to the Spectral Analysis Application are welcome. If you encounter any issues, have suggestions for improvement, or would like to add new features, please submit an issue or a pull request to this repository.
+
+### License
+
+The Spectral Analysis Application is released under the [MIT License](LICENSE). Feel free to use, modify, and distribute the code for both commercial and non-commercial purposes.
