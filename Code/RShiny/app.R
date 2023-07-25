@@ -17,6 +17,8 @@ get_lib()
 # Load FTIR library into global environment
 spec_lib <- load_lib()
 
+# ... (Previous code remains unchanged)
+
 # Define UI
 ui <- fluidPage(
   titlePanel("OpenSpecy Spectral Analysis"),
@@ -38,7 +40,20 @@ ui <- fluidPage(
     ),
     mainPanel(
       tabsetPanel(
-        tabPanel("Results Table", DT::dataTableOutput("table"))
+        tabPanel("Results Table", DT::dataTableOutput("table")),
+        tabPanel("Help", 
+                 p("Welcome to the OpenSpecy Spectral Analysis App!"),
+                 p("Common Issues:"),
+                 ol(
+                   li("Ensure you upload a file with one of the supported extensions: CSV, ASP, JDX, SPC, SPA, 0."),
+                   li("For intensity smoothing and background correction, input valid values within the specified ranges (1 to 7 for smoothing, 1 to 20 for background)."),
+                   li("If the results table is empty, the uploaded spectrum may not match any spectra in the FTIR library."),
+                   li("Check your internet connection and ensure all required packages are installed and loaded correctly."),
+                   li("Large datasets or a high number of combinations can increase processing time."),
+                   li("Refer to the app's documentation and error messages for additional troubleshooting."),
+                   li("In case of R session crashes, consider using smaller datasets or optimizing system resources.")
+                 )
+        )
       )
     )
   )
