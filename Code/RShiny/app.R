@@ -34,7 +34,8 @@ ui <- fluidPage(
                   ".0"
                 )
       ),
-      tags$small("Accepted file types: CSV, ASP, JDX, SPC, SPA, 0")
+      tags$small("Accepted file types: CSV, ASP, JDX, SPC, SPA, 0"),
+      downloadButton("download_example", "Download Example Dataset")  # Add the Download button
     ),
     mainPanel(
       tabsetPanel(
@@ -43,6 +44,7 @@ ui <- fluidPage(
     )
   )
 )
+
 
 # Define server logic
 server <- function(input, output) {
@@ -168,6 +170,16 @@ server <- function(input, output) {
                                  "Spectrum Identity", "R-Value", "Organization", "Spectrum Type"))
     })
   })
+  
+  # Function to serve the example dataset for download
+  output$download_example <- downloadHandler(
+    filename = function() {
+      "testdata.csv"  # Set the name of the downloaded file
+    },
+    content = function(file) {
+      write.csv(example_data, file, row.names = FALSE)  # Write the example dataset to the CSV file
+    }
+  )
 }
 
 # Run the application
