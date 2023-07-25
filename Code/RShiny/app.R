@@ -17,7 +17,7 @@ get_lib()
 # Load FTIR library into global environment
 spec_lib <- load_lib()
 
-# Define UI
+# Define UI----
 ui <- fluidPage(
   titlePanel("OpenSpecy Spectral Analysis"),
   sidebarLayout(
@@ -59,7 +59,7 @@ ui <- fluidPage(
 )
 
 
-# Define server logic
+# Define server logic----
 server <- function(input, output) {
   data <- reactiveVal(NULL)
   
@@ -88,7 +88,7 @@ server <- function(input, output) {
       }
     })()
     
-    # Define a reactive function to generate the example dataset
+    # Define a reactive function to generate the example dataset----
     create_example_dataset <- function() {
       # You can perform any preprocessing or formatting of the dataset here
       return(dataset)
@@ -107,11 +107,11 @@ server <- function(input, output) {
       }
     )
     
-    # Adjust spectral intensity
+    # Adjust spectral intensity----
     adj_data <- spec_data %>% adj_intens()
     progress$inc(10, detail = "Adjusted spectral intensity")
     
-    # Test if Raman or FTIR 
+    # Test if Raman or FTIR ----
     testraman <- match_spec(spec_data, library = spec_lib, which = "raman")
     testftir <- match_spec(spec_data, library = spec_lib, which = "ftir")
     
@@ -150,7 +150,7 @@ server <- function(input, output) {
     
     for (factor in smoothing_factors) {
       for (subtr_bg_value in subtr_bg_values) {
-        # Smooth and background-correct spectrum with current smoothing factor and subtr_bg value
+        # Smooth and background-correct spectrum with current smoothing factor and subtr_bg value----
         proc_data <- adj_data %>% smooth_intens(factor) %>% subtr_bg(subtr_bg_value)
         
         if (spectrum_type == "Raman") {
